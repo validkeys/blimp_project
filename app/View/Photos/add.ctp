@@ -1,0 +1,1 @@
+<?php echo $this->element('photos/form', array('edit_mode'	=> false)) ?>
