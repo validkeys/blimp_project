@@ -1,0 +1,22 @@
+ul.photo-grid{
+	margin: 0;
+	padding: 0;
+}
+
+ul.photo-grid li{
+	width: 200px;
+	margin: 0 2px;
+	display: block;
+	float: left;
+}
+
+ul.photo-grid li div.heading{
+	font-size: 20px;
+	margin: 0 0 10px 0;
+	font-weight: bold;
+}
+div.actions ul{margin: 0;}
+div.actions ul li{
+	margin: 0;
+	display: block;
+}

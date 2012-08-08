@@ -88,7 +88,7 @@ class Photo extends AppModel {
 		foreach ($photos as $photo) {
 			$regroup[date('gA', strtotime($photo['Photo']['date_taken']))][] = $photo;
 		}
-
+		
 		return $regroup;
 	}
 

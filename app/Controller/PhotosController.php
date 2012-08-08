@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class PhotosController extends AppController {
 
-
 	var $components = array
 	(
 		'Attachment'	=> array
@@ -26,7 +25,10 @@ class PhotosController extends AppController {
 	);
 
 
-	// private function 
+	function beforeFilter(){
+		parent::beforeFilter();
+		$this->layout = "default_bootstrap";
+	}
 
 /**
  * index method

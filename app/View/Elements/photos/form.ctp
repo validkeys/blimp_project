@@ -1,7 +1,17 @@
-<div class="photos form">
+<header class="jumbotron subhead" id="overview">
+  <h1><?php echo ($edit_mode == true) ? __('Edit Photo') : __('Add Photo'); ?></h1>
+  <p class="lead">You're about to do something to a photo.</p>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><?php echo $this->Html->link(__('List Photos'), array('action' => 'index')); ?></li>
+    </ul>
+  </div>
+</header>
+
+
+<div class="photos form form-horizontal well">
 <?php echo $this->Form->create('Photo', array('type'	=> 'file')); ?>
 	<fieldset>
-		<legend><?php echo ($edit_mode == true) ? __('Edit Photo') : __('Add Photo'); ?></legend>
 	<?php
 		echo ($edit_mode == true) ? $this->Form->input('id') : '';
 		echo $this->Form->input('Photo', array('type'	=> 'file'));
@@ -11,13 +21,10 @@
 		echo $this->Form->input('date_taken');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Photo.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Photo.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Photos'), array('action' => 'index')); ?></li>
-	</ul>
+<?php echo $this->Form->end(array(
+'text'	=> __('Submit'),
+'class'	=> 'btn btn-primary',
+'div'	=> array(
+	'style'	=> array('margin'	=> '10px 0','clear'	=> 'both')
+	))); ?>
 </div>
