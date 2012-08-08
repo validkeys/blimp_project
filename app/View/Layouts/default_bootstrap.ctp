@@ -54,7 +54,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="<?php echo $this->webroot; ?>">Project Andora Rabbit</a>
+        <a class="brand" href="<?php echo $this->webroot; ?>">Project Angora Rabbit</a>
         <div class="nav-collapse">
           <ul class="nav">
             <li class="active">
