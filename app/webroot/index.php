@@ -1,4 +1,10 @@
 <?php
+
+// For Orchestra Hosting
+if (!defined('TMP')) {
+    define('TMP', sys_get_temp_dir());
+}
+
 /**
  * Index
  *

@@ -276,3 +276,6 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+// Orchestra
+Cache::config('default', array('engine' => 'File', 'path' => sys_get_temp_dir()));
