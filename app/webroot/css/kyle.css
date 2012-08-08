@@ -20,3 +20,8 @@ div.actions ul li{
 	margin: 0;
 	display: block;
 }
+
+div.image-holder{
+	height: 130px;
+	overflow: hidden;
+}

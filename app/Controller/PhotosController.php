@@ -36,11 +36,39 @@ class PhotosController extends AppController {
  * @return void
  */
 	public function index() {
+
+			$alloweable_orgs = array('date','time','rabbit');
+
+			$org = "date";
+
+			if(!empty($this->passedArgs) && isset($this->passedArgs['org']) && in_array($this->passedArgs['org'], $alloweable_orgs)){
+				$org = $this->passedArgs['org'];
+			}
+
 			$this->autoRender = false;
 			$this->Photo->recursive = 0;
 			// $this->set('photos', $this->Photo->find('all'));
-			$this->set('photos', $this->Photo->find_by_time('2012-08-07','17:00:00','22:00:00'));
-			$this->render('index_time');
+
+			switch ($org) {
+				case 'time':
+					$photos = $this->Photo->find_by_time('2012-08-07','17:00:00','22:00:00');
+					break;
+				
+				default:
+					// Default to the last 7 days
+					$start_date = date('Y-m-d',strtotime('-7 Days'));
+					$end_date 	= date('Y-m-d');
+					if(isset($this->passedArgs['start_date']) && isset($this->passedArgs['end_date'])){
+						$start_date = date('Y-m-d',strtotime($this->passedArgs['start_date']));
+						$end_date 	= date('Y-m-d',strtotime($this->passedArgs['end_date']));							
+					}
+					$photos = $this->Photo->find_by_date($start_date,$end_date);
+					break;
+			}
+
+			$this->set('photos', $photos);
+			$this->set('org', $org);
+			$this->render('index_'.$org);
 	}
 
 /**

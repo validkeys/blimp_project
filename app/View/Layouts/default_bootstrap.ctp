@@ -20,15 +20,16 @@
   <?php
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('bootstrap-responsive');
-    echo $this->Html->css('docs');
-    echo $this->Html->css('prettify');
+    // echo $this->Html->css('docs');
+    // echo $this->Html->css('prettify');
     echo $this->Html->css('kyle');
   ?>
-
   <!-- Bootstrap JS -->
   <?php 
-    echo $this->Js->script(array('bootstrap','jquery-1.7.2.min','jquery-ui-1.8.22.custom.min'));
+    echo $this->Html->script(array('jquery-1.7.2.min','jquery-ui-1.8.22.custom.min','jquery.easing.1.3','jquery.easing.compatibility'));
+    // echo $this->Html->script('bootstrap');
   ?>
+
   <!-- icons -->
   <?php
     echo  $this->Html->meta('icon',$this->webroot.'img/favicon.ico');
