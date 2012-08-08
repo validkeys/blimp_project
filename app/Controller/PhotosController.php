@@ -19,7 +19,8 @@ class PhotosController extends AppController {
 			'images_size'			=> array
 			(
 				'large'		=> array(1936,2592,'resize'), //w,h,crop (resize, resizeCrop, crop)
-				'med'		=> array(1000,1000,'resizeCrop')
+				'med'		=> array(1000,1000,'resizeCrop'),
+				'small'		=> array(200, 268, 'resize')
 			)
 		)
 	);
@@ -33,12 +34,11 @@ class PhotosController extends AppController {
  * @return void
  */
 	public function index() {
-		// $this->autoRender = false;
-		// if(!empty($this->request->query) && isset($this->request->query['debug']) && $this->request->query['debug'] == true){
+			$this->autoRender = false;
 			$this->Photo->recursive = 0;
-			$this->set('photos', $this->paginate());
-			// $this->render();
-		// }
+			// $this->set('photos', $this->Photo->find('all'));
+			$this->set('photos', $this->Photo->find_by_time('2012-08-07','17:00:00','22:00:00'));
+			$this->render('index_time');
 	}
 
 /**
