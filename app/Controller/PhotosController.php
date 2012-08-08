@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Photo $Photo
  */
 class PhotosController extends AppController {
-
+	public $helpers = array('Time');
 	var $components = array
 	(
 		'Attachment'	=> array

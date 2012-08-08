@@ -4,7 +4,7 @@
 <ul class="photo-grid">
 	<?php foreach ($photos as $date => $photolist): ?>
 		<li>
-			<div class="heading"><?php echo $date ?></div>
+			<div class="heading"><?php echo date('F jS', strtotime($date)) ?></div>
 			<?php foreach ($photolist as $photo): ?>
 			<div class="image-holder">
 				<img src="<?php echo $this->webroot . "attachments" . DS . "img" . DS . "small" . DS . $photo['Photo']['Photo_file_path'] ?>" alt="<?php echo $photo['Photo']['title'] ?>" />
